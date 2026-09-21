@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    
+    <meta charset="UTF-8"> <!-- Per vedere correttamente (per caratteri universali come accenti e simboli) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     <!-- Fa adattare automaticamente la pagina agli schermi di PC, telefoni e tablet  -->
+    <title>T.M. Sicurezza - Consulenza e Lavorazioni Meccaniche</title> <!-- Titolo pagina, si vede tramite ricerca google (inutile), tab delle schede e cronologia -->
+    <link rel="stylesheet" href="CSS-PAGINA-HOME.css"> <!-- Collega gli elementi estetici al file esterno css (mantenendo più pulito l'html) -->
+	
+</head>
+
+
+
+
+
+<body>
+
+    <!-- Inizio della Navbar, Barra di navigazione divisa in 2 parti -->
+    <nav class="navbar">
+        
+        <!-- Porzione di NavBar di sinistra, per il logo e nome  -->
+        <div class="logo">
+            <a href="index.html"> <!-- se si clicca il logo si va alla home page, index.html (questa) -->
+                <img src="FOTO/Logo.jpg" alt="Logo T.M. Sicurezza">
+                <span>T.M. Sicurezza</span>
+            </a>
+        </div>
+        
+		
+		
+		
+         <!-- Porzione di NavBar di destra, per collegamenti alle altre pagine + menu ad hamburger sulla destra per dispositvi <=900 px -->
+		 
+		  <!-- Pulsante Hamburger (visibile solo su telefoni o tablet, PC no [<=900px]) -->
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="Apri menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+		 
+		 
+		 <!-- Collegamenti ad altre pagine html -->
+        <ul class="nav-links" id="nav-links-menu">
+            
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="CollegamentoInesistente">La nostra azienda</a></li> <!-- Pagina inesistente -->
+            
+            <!-- Menu a tendina per le scelte in sevizi -->
+            <li class="dropdown-trigger">
+                <a href="#" class="dropdown-toggle">Servizi ▼</a> <!-- fa scendere il menu login --> 
+                
+                <ul class="dropdown">
+                    <li><a href="Esempio di documentazione DVR.pdf">Esempio di documentazione DVR</a></li>
+                    <li><a href="Valutazione del Rischio per Area di Lavoro.html">Calcolo della valutazione di Rischio</a></li>
+                    <li><a href="Spiegazione della stima del rischio (generale).pdf">Spiegazione della stima del Rischio</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="CollegamentoInesistente">Contatti</a></li> <!-- Pagina inesistente -->
+            
+<!-- Inizialmente pensato per avere una funzione di autentificazione per il download, forse sarebbe andato fuori traccia per via di sql e tutto il resto (troppo complesso) -->
+            <li class="dropdown-trigger">
+                <a href="#" class="login-btn dropdown-toggle">Login ▼</a>   <!-- fa scendere il menu login -->
+               
+                <ul class="dropdown dropdown-login">
+                    <li><a href="CollegamentoInesistente">Clienti Area Riservata</a></li> <!-- Pagina inesistente -->
+                    <li><a href="CollegamentoInesistente">Dipendenti & RSPP Portal</a></li> <!-- Pagina inesistente -->
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+    <section class="copertina-hero"> <!-- Hero si usa per avere più impatto visivo sul sito -->
+        <h1>Previsione e Gestione del Rischio</h1>
+        <p>Garantiamo la sicurezza e la conformità della tua azienda attraverso analisi predittive avanzate e valutazioni dei pericoli mirate.</p>
+    </section>
+
+    <!-- Sezione informativa contenente la griglia delle caratteristiche aziendali e obiettivi di tesi -->
+    <section class="informazioni-azienda">
+        <!-- Contenitore del titolo di questa specifica sezione -->
+        <div class="mini-titolo">
+            <h2>Il nostro approccio alla sicurezza</h2>
+        </div>
+        
+        <!-- Contenitore generale (la griglia elastica responsiva) che racchiude le 3 schede informative -->
+        <div class="sezione-schede">
+            
+            <!-- Prima Scheda dedicata alla previsione dei pericoli e calcolo algoritmico
+                 (da sinistra verso destra)			-->
+            <div class="scheda">
+                <img src="FOTO/Caschetto.jpg" alt="Riunione aziendale con caschetto">
+                <div class="contenuto-scheda">
+                    <h3>Previsione dei Pericoli</h3>
+                    <p>Analizziamo continuamente gli scenari operativi per anticipare gli eventi, riducendo a zero le probabilità di incidente sul lavoro.</p>
+                </div>
+            </div>
+
+            <!-- Seconda Scheda dedicata alla partnership e sicurezza dei dati -->
+            <div class="scheda">
+                <img src="FOTO/StrettaDiMano.jpg" alt="Stretta di mano in ufficio">
+                <div class="contenuto-scheda">
+                    <h3>Prodotti che ispirano Fiducia</h3>
+                    <p>Costruiamo relazioni solide con i nostri clienti. La fiducia reciproca è la base per un ambiente lavorativo sano e protetto grazie ai nostri prodotti e risultati.</p>
+                </div>
+            </div>
+
+            <!-- Terza Scheda dedicata alla documentazione digitale e all'accesso istantaneo tramite QR -->
+            <div class="scheda">
+                <img src="FOTO/DocumentazioneFoto.jpg" alt="Documentazione e analisi">
+                <div class="contenuto-scheda">
+                    <h3>Documentazione Conforme</h3>
+                    <p>Forniamo report dettagliati e documenti DVR certificati, con facile accesso, rispettando pienamente tutte le normative legislative vigenti in materia.</p>
+					 <!-- per la maggior parte norme legate a privacy  -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Ara a fondo Pagina: per contatti, info e riguardo a miglioramenti del sito -->
+    <footer class="Fondo-Pagina">
+        <div class="Sezione-Piè-di-Pagina">
+            <!-- Colonna info Aziendali -->
+            <div class="Info-Alla-Fine">
+                <h3>T.M. Sicurezza</h3>
+                <p>Consulenza in materia di sicurezza e salute dei posti di lavoro e lavorazioni meccaniche per far crescere il tuo business.</p>
+            </div>
+            
+            <!-- Colonna per i Contatti -->
+            <div class="Info-Alla-Fine">
+                <h3>Contatti</h3>
+                <p><strong>Email:</strong>info@tmsicurezza.com</p>
+                <p><strong>Telefono:</strong>+39 392 110 1319</p>
+                <p><strong>Sede:</strong> Via Spazzilli, 61 - Giugliano (NA)</p>
+            </div>
+            
+            <!-- Colonna per la sezione di miglioramento e rochiesta del feedback da parte dell'utente -->
+            <div class="Info-Alla-Fine">
+                <h3>Aiutaci a Migliorare</h3>
+                <p>Lavoriamo ogni giorno per offrirvi il miglior servizio possibile. Vi invitiamo a condividere le vostre esperienze, suggerimenti o segnalazioni contattando il nostro servizio clienti.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script esterno per il menu ad hamburger (niente defer)-->
+    <script src="Menu ad Hamburger.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,423 @@
+
+/* Introdurrò, dove possibile un commento  o dove ritengo sia necessario 
+   (evitando di commentare concetti noti o deducibili come colour, background colour, height)
+   per la spiegazione di concetti, comandi e configurazioni, ogni volta che vengono introdotti nel codice
+  (solo quando vengono inseriti per la prima volta, senza riempire il codice di commenti)
+   - 
+   - 
+   - 
+*/
+* {   /*    Il selettore universale (*) seleziona tutti gli elementi della pagina  */ 
+    margin: 0;      /* azzera lo spazio esterno attorno agli elementi  */   
+    padding: 0;     /* azzera lo spazio interno dentro i bordi degli elementi. */ 
+    box-sizing: border-box;  /* include padding e bordi nel calcolo della dimensione totale */ 
+    font-family: Arial MT, Arial;  /*  il carattere utilizzato */ 
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial MT;
+    background-color: #f8f9fa; 
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;   /* nasconde lo scorrimento orizzontale (x) */ 
+}
+
+
+
+
+
+
+
+/*   Barra di Navigazione, Navbar */
+
+.navbar {    
+    display: flex;   /* modello flessibile, flexbox, per allineare gli elementi */ 
+    justify-content: space-between;  /* distribuisce gli elementi */ 
+    align-items: center;
+    background-color: #ffffff;
+    padding: 0 5%;
+    height: 70px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000;   /* mette in sovrapposizione rispetto agli altri elementi (z) */ 
+}
+
+/* sezione della parte sinistra della navbar
+ 
+ sezione per il Logo */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;   /* elimina la sottolineatura predefiniti */ 
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #0d47a1;
+}
+
+/* sezione della fotografia del logo*/
+.logo img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;   /* arrotonda gli angoli per formare il cerchio del logo */ 
+    object-fit: cover;    /* taglia l'immagine per posizionarla al meglio */  
+}
+
+
+
+
+
+
+
+
+
+
+/* sezione per i link nella navbar */
+.nav-links {
+    display: flex;
+    list-style: none;  /* elimina pallini e/o numeri predefiniti*/ 
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links li {   /* selettore che indica un elemento di una lista (list)*/ 
+    position: relative;
+}
+
+/* Sezione della Navbar di destra con linl*/
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;  /* brevissima animazione per cambio proprietà*/ 
+    cursor: pointer;   /* trasforma il puntatore predefinito del mouse in mano con indice alzato (e pollice) */ 
+}
+
+/* Menu a tendina */
+.dropdown-trigger {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;  /* absolute sovrappone su gli altri elementi */ 
+    background-color: #fff;
+    min-width: 240px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 10000;
+    border-radius: 6px;
+    top: 100%;
+    left: 0;
+    padding: 5px 0;
+    list-style: none;
+}
+
+.dropdown li a { 
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    border-bottom: none;
+}
+
+.dropdown li a:hover {       /* con hover si intende mouse-over, cioè quando si posiziona il mouse sull'elemento */ 
+    background-color: #d3d3d3;
+    color: #0d47a1;
+}
+
+
+
+
+
+
+/* Funzionalita aggiuntive del mouse over solo per i PC (sopra [>] i 900 px) */
+
+@media (min-width: 901px) {
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: #0d47a1;
+    }
+    
+    .dropdown-trigger:hover .dropdown {  
+        display: block;
+    }
+}
+
+/* Bottone login */
+.login-btn {
+    background-color: #32cd32;
+    color: white !important;  /* !important forza la priorità, sovrascrivendo qualsiasi altro comando CSS in conflitto */  
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    transition: background 0.3s !important;
+}
+
+.login-btn:hover {
+    background-color: #2eb82e;
+}
+
+/* Piè di pagina */
+
+.Fondo-Pagina {
+    background-color: #ffffff; 
+    color: #333;
+    padding: 40px 5% 20px 5%;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 60px;
+}
+
+/* Piè di pagina*/
+.Sezione-Piè-di-Pagina {
+    display: grid;  /*  grid attiva un layout a griglia */ 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));   /* divide lo spazio in colonne in modo automatico */ 
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.Info-Alla-Fine h3 {
+    color: #0d47a1; 
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.Info-Alla-Fine p {
+    color: #666; 
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+/* Menu ad Hamburger */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    padding: 0;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: #0d47a1;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+
+ /*  Fine della sezione in comune con l'index*/ 
+
+
+
+
+/* Menu ad Hamburger solo per telefoni e tablet (<=900px) */
+
+@media (max-width: 900px) {  /* Isola il codice, facendolo funzionare solo per dispositivi mobili */ 
+.hamburger-menu {
+display: flex;
+}
+.nav-links {
+position: fixed;
+top: 0;
+right: -100%;
+width: 300px;
+height: 100vh;
+background-color: #ffffff;
+box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+padding: 90px 24px 40px 24px;
+gap: 10px;
+transition: right 0.4s ease;
+overflow-y: auto;  /* simile a quello di z, sovrapponendo o mettendo in evidenza (verticale) le voci del menu che superano lo schermo mobile. */ 
+z-index: 10000;
+}
+
+.nav-links.open {
+right: 0;
+}
+.nav-links li {
+width: 100%;
+}
+.nav-links a {
+width: 100%;
+padding: 12px 0;
+font-size: 1.05rem;
+border-bottom: 1px solid #f0f0f0;
+}
+
+
+
+
+
+
+
+ /* Sezione per il sotto-menu a tendina all'interno del menu hamburger */ 
+.dropdown {
+display: none;
+position: static;
+width: 100%;
+box-shadow: none;
+background-color: #fdfdfd;
+padding: 5px 0 5px 15px;
+border-left: 3px solid #0d47a1;
+border-radius: 0;
+margin-top: 5px;
+}
+.dropdown-trigger:hover .dropdown {   /* il mouse over (per menu), ha senso solo su pc */ 
+display: none;
+}
+.dropdown li a {
+font-size: 0.9rem;
+padding: 10px 0;
+color: #555;
+border-bottom: none;
+}
+.login-btn {
+background-color: #32cd32 !important;
+color: white !important;
+padding: 12px 15px !important;
+border-radius: 4px;
+margin-top: 10px;
+text-align: center;
+}
+
+ /* Fine della sezione in comune con index */ 
+
+
+
+
+
+
+
+/* Regole adattative specifiche per i testi della sezione Hero sui dispositivi mobili */
+.copertina-hero h1 {
+font-size: 30px;
+}
+.copertina-hero p {
+font-size: 15px;
+}
+.Sezione-Piè-di-Pagina {
+grid-template-columns: 1fr;
+gap: 25px;
+}
+
+
+
+
+
+}
+
+
+
+/* Sezione del main container della pagina */
+
+.copertina-hero { 
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+padding: 140px 20px 100px 20px;
+background: linear-gradient(rgba(13, 71, 161, 0.9), rgba(13, 71, 161, 0.95)), url('FOTO/SfondoHero.jpg') center/cover no-repeat;  /*  si vede ombrato/nascosto apposta*/ 
+color: #ffffff;
+}
+.copertina-hero h1 {
+font-size: 42px;
+margin-bottom: 20px;
+font-weight: bold;
+}
+.copertina-hero p {
+font-size: 18px;
+max-width: 800px;
+line-height: 1.6;
+}
+.informazioni-azienda {
+padding: 60px 5%;
+background-color: #f8f9fa;
+}
+.mini-titolo {
+text-align: center;
+margin-bottom: 40px;
+}
+ .mini-titolo h2 {  /* Mini titolo in comune */ 
+font-size: 36px;
+color: #0d47a1;
+position: relative;
+display: inline-block;
+        }
+
+.mini-titolo h2::after {    /* Effetto di sottolineatura */ 
+ content: '';
+display: block;
+width: 50%;
+height: 3px;
+background-color: #0d47a1;
+margin: 5px auto 0;
+        }
+
+
+
+.sezione-schede {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px;
+}
+
+.scheda {
+background: #ffffff;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.scheda:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+.scheda img {
+width: 100%;
+height: 220px;
+object-fit: cover;
+}
+.contenuto-scheda {
+padding: 20px;
+}
+.contenuto-scheda h3 {
+font-size: 20px;
+margin-bottom: 12px;
+color: #0d47a1;
+}
+.contenuto-scheda p {
+font-size: 15px;
+color: #555;
+}
+

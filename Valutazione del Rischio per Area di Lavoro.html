@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    
+    <meta charset="UTF-8"> <!-- Per vedere correttamente (per caratteri universali come accenti e simboli) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">     <!-- Fa adattare automaticamente la pagina agli schermi di PC, telefoni e tablet  -->
+    <title>T.M. Sicurezza - Consulenza e Lavorazioni Meccaniche</title> <!-- Titolo pagina, si vede tramite ricerca google (inutile), tab delle schede e cronologia -->
+    <link rel="stylesheet" href="CSS-PAGINA-AREE-di-RISCHIO.css"> <!-- Collega gli elementi estetici al file esterno css (mantenendo più pulito l'html) -->
+	
+</head>
+
+<body>
+
+    <!-- Inizio della Navbar, Barra di navigazione divisa in 2 parti -->
+    <nav class="navbar">
+        
+        <!-- Porzione di NavBar di sinistra, per il logo e nome  -->
+        <div class="logo">
+            <a href="index.html"> <!-- se si clicca il logo si va alla home page, index.html -->
+                <img src="FOTO/Logo.jpg" alt="Logo T.M. Sicurezza">
+                <span>T.M. Sicurezza</span>
+            </a>
+        </div>
+		
+         <!-- Porzione di NavBar di destra, per collegamenti alle altre pagine + menu ad hamburger sulla destra per dispositvi <=900 px -->
+		 
+		  <!-- Pulsante Hamburger (visibile solo su telefoni o tablet, PC no [<=900px]) -->
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="Apri menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+		 <!-- Collegamenti ad altre pagine html -->
+        <ul class="nav-links" id="nav-links-menu">
+            
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="CollegamentoInesistente">La nostra azienda</a></li> <!-- Pagina inesistente -->
+            
+            <!-- Menu a tendina per le scelte in sevizi -->
+            <li class="dropdown-trigger">
+                <a href="#" class="dropdown-toggle">Servizi ▼</a> <!-- mostra # in mouseover, facendo scendere il menu-->
+                
+                <ul class="dropdown">
+                    <li><a href="Esempio di Documentazione DVR.pdf">Esempio di documentazione DVR</a></li>
+                    <li><a href="Valutazione del Rischio per Area di Lavoro.html">Calcolo della valutazione di Rischio</a></li>
+                    <li><a href="Spiegazione della stima del rischio (generale).pdf">Spiegazione della stima del Rischio</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="CollegamentoInesistente">Contatti</a></li> <!-- Pagina inesistente -->
+            
+            <!-- Inizialmente pensato per avere una funzione di autentificazione per il download, forse sarebbe andato fuori traccia -->
+            <li class="dropdown-trigger">
+                <a href="#" class="login-btn dropdown-toggle">Login ▼</a> <!-- fa scendere il menu servizi -->
+               
+                <ul class="dropdown dropdown-login">
+                    <li><a href="CollegamentoInesistente">Clienti (Partner)</a></li> <!-- Pagina inesistente -->
+                    <li><a href="CollegamentoInesistente">RSPP Portal</a></li> <!-- Pagina inesistente -->
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+	<!-- Fino a qui è uguale a Index -->
+	
+	
+	
+
+<!-- contenuto principale, main, dell'applicativo (pagina Web) -->
+<main class="main-container">
+  
+  <div class="mini-titolo">
+    <h2>Calcolo della Valutazione Rischio</h2>
+    <p>Seleziona la posizione dell'area di lavoro dal menu oppure scansiona/carica il QR Code per visualizzare la valutazione del rischio per ogni singola area.</p>
+</div>
+
+    <!-- sezione per il form con la selezione manuale dei file/aree di lavoro  -->
+	<div class="grid-sections">
+    <section class="section-box">  <!-- sezione effettiva per le scelte con tutte le opzioni di aree di lavoro-->
+      <h3>Scegli l'area di lavoro</h3>
+      <form id="risk-form">
+        <div class="form-group">
+          <label for="posizione-select">Seleziona Area / Ambiente:</label>
+          <select id="posizione-select" class="form-control" required>
+            <option value="">-- Scegli l'area di lavoro --</option> <!-- nessun valore per la scritta di default per la scelta -->
+            <option value="UFFICIO AMMINISTRATIVO.pdf">Ufficio Amministrativo</option>
+            <option value="UFFICIO TECNICO.pdf">Ufficio Tecnico</option>
+            <option value="SALA RIUNIONI.pdf">Sala Riunione</option>
+            <option value="AREA FOTOCOPIE.pdf">Area Fotocopie</option>
+            <option value="AREA SERVIZI IGIENICI.pdf">Area Servizi Igienici</option>
+            <option value="SALA D'ATTESA.pdf">Attesa</option>
+            <option value="SALA D'INGRESSO.pdf">Sala d'Ingressso</option>
+            <option value="CORRIDOIO.pdf">Corridoio</option>
+            <option value="ARCHIVIO.pdf">Archivi</option>
+            <option value="SEGRETERIA.pdf">Segreteria</option>
+            <option value="OFFICINA.pdf">Officina</option>
+            <option value="DEPOSITO ATTREZZATURE.pdf">Deposito attrezzature</option>
+            <option value="DEPOSITO MATERIALI.pdf">Deposito materiali</option>
+            <option value="DEPOSITO PRINCIPALE.pdf">Deposito</option>
+            <option value="ZONA ESTERNA.pdf">Zona Esterna</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-action">Richiedi File</button>
+      </form>
+    </section>
+
+<!-- Sezione per lo scanner: preso parecchio spunto dal video https://youtu.be/19eo39lqpLM?list=PLd-ymUv7d_Xvhx41RM6R5_zj7Twc-8xYR per la funzione-->
+    <section class="section-box">
+      <h3>Scansione o Upload QR Code dal dispositivo</h3>
+      <div id="ScannerizzaCodiceQR"></div> <!-- ScannerizzaCodiceQR è il nome dello scanner, nominato in file esterno di javascript -->
+    </section>
+    
+    <!-- Contenitore isolato per visualizzare il testo generato dallo scanner ed evitare sovrapposizioni con risultato finale del "Form" con la selezione manuale dei file/aree di lavoro -->
+    <div id="RisultatoScansione"></div>    
+  
+  
+  </div>
+    <!-- fine della sezione del "Form" -->
+
+
+
+
+
+
+
+  <!-- Output del "Form" -->
+  <section id="result-section" class="result-box">
+    <h3 id="result-title">Elaborazione Completata</h3>
+    <p id="result-text">Download pronto per la posizione selezionata.</p>
+    
+    <div class="result-actions">
+      <button id="btn-download-pdf" class="btn-action" style="max-width: 250px; background-color: #ffa500;">
+        Scarica Registro PDF Rischio
+      </button>
+    </div>
+  </section>
+
+
+
+
+</main>
+
+<!-- Script esterno per il menu ad hamburger (niente defer)-->
+    <script src="Menu ad Hamburger.js"></script>
+
+<!-- Script per il rilascio dei file pdf -->
+<script src="Gestione e rilascio del risultato del Form.js"></script>
+
+<!-- Stringa per l'Inclusione della libreria dello scanner vista dal video https://youtu.be/19eo39lqpLM?list=PLd-ymUv7d_Xvhx41RM6R5_zj7Twc-8xYR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Script esterno, defer si usa per sicurezza (evitare errori per grazie al caricamento della pagina) 
+(in realta non c'è bisogno ma è una froma di sicurezza in più) -->
+<script src="Scanner.js" defer></script> 
+
+
+
+</body>
+
+
+
+
+
+
+
+    <!-- Area a fondo Pagina: per contatti, info e riguardo a miglioramenti del sito -->
+    <footer class="Fondo-Pagina">
+        <div class="Sezione-Piè-di-Pagina">
+            <!-- Colonna info Aziendali (non ho inserito nessun link, solo una descrizione simile al content -->
+            <div class="Info-Alla-Fine">
+                <h3>T.M. Sicurezza</h3>
+                <p>Consulenza in materia di sicurezza e salute dei posti di lavoro e lavorazioni meccaniche per far crescere il tuo business.</p>
+            </div>
+            
+            <!-- Colonna per i Contatti, usati poi per un eventuale per un feedback ecc. -->
+            <div class="Info-Alla-Fine">
+                <h3>Contatti</h3>
+                <p><strong>Email:</strong>info@tmsicurezza.com</p>
+                <p><strong>Telefono:</strong>+39 392 110 1319</p>
+                <p><strong>Sede:</strong> Via Spazzilli, 61 - Giugliano (NA)</p>
+            </div>
+            
+            <!-- Colonna per la sezione di miglioramento e richiesta del feedback da parte dell'utente -->
+            <div class="Info-Alla-Fine">
+                <h3>Aiutaci a Migliorare</h3>
+                <p>Lavoriamo ogni giorno per offrirvi il miglior servizio possibile. Vi invitiamo a condividere le vostre esperienze, suggerimenti o segnalazioni contattando il nostro servizio clienti.</p>
+            </div>
+			
+        </div>
+
+    </footer>
+
+</html>
